@@ -1,0 +1,48 @@
+
+connessione tramite shell:
+\c ${dbname} ${username}
+esempio:
+\c plusdb plus_dizionari
+
+Trasformazione VARCHAR2 in VARCHAR senza BYTE:
+(VARCHAR2\()([0-9]+)([^\)]*)\) --> VARCHAR(\2)
+
+Trasformazione CHAR senza BYTE:
+(CHAR\()([0-9]+)([^\)]*)\) --> CHAR(\2)
+
+Trasformazione NUMBER in NUMERIC
+
+Gestione Timestamp: per tutti TIMESTAMP(6)
+(TIMESTAMP)(\([^\)*])
+
+Eliminazione PROMPT:
+[Pp]rompt.+$ --> null
+
+--------------------------------------------------------------------------------------------
+
+Sequence:
+Eliminare  clausole NOORDER e ORDER
+NOCYCLE --> NO CYCLE
+MAXVALUE 9999999999999999999999999999 --> MAXVALUE 9223372036854775807
+
+nelle insert sostituire 
+	<nome_sequence>.nextval e <nome_sequence>.currval
+con 
+	nextval('<nome_sequence>') e currval('<nome_sequence>')
+	
+per effettuare la replace si può utilizzare la seguente espressione regolare:
+	(\()([^.]+)\.NEXTVAL --> (nextval('\2')
+	(\()([^.]+)\.CURRVAL --> (currval('\2')
+
+--------------------------------------------------------------------------------------------
+
+Primari key e foreign key:
+	ADD (PRIMARY KEY ....);
+e 
+	ADD (FOREIGN KEY ....);
+diventano:
+	ADD PRIMARY KEY ....;
+e 
+	ADD FOREIGN KEY ....;
+
+
