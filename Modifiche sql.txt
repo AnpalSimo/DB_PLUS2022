@@ -1,0 +1,12 @@
+Modifiche per sql:
+1) (+) --> LEFT OUTER JOIN
+2) sysdate --> now()
+3) select <nome_sequence>.nextval from dual --> select nextval('<nome_sequence>')
+4) NVL(arg1,arg2) --> COALESCE(arg1,arg2)
+5) Limitazione delle righe tramite LIMIT
+6) TRUNC(sysdate) --> date_trunc('day',now()) 
+
+7) SEMBRA CHE IL NOME JNDI EIL NOME DEL DATASOURCE DEBBANO COINCIDERE A MENO DEL PREFISSO jdbc/:
+Nome jndi: jdbc/ORA1_SIL2
+Nome Datasource: ORA1_SIL2
+
