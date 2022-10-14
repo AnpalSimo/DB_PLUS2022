@@ -1374,7 +1374,7 @@ DECLARE
          fase:='SP_REGISTRA_SOGPROM ritorno';
          msgErrore := 'Ritorno : ' || msgErrore;
 	  	 Raise notice 'Errore : %', msgErrore;
-		 Raise notice 'Il codice intermediario genrato per l''azienda % , C.F. - %,  Ë : %' ,inDesDenominazione,inCodFiscale,outCodIntermediario;
+		 Raise notice 'Il codice intermediario genrato per l''azienda % , C.F. - %,  √® : %' ,inDesDenominazione,inCodFiscale,outCodIntermediario;
 --		 Raise debug ''whatever you want % '', aVariable;
        ELSE
            fase:='numSeparatorsNOT15 ';
@@ -1505,9 +1505,9 @@ BEGIN
          ROLLBACK;
   	   END IF;
       /*
-      ï	RICHIESTA_PAG_INFO_PAGAMENTO.FLG_RENDICONTABILE 
-        o	Valorizzare con ëSí  se RICHIESTA_PAGAMENTO.IMP_PAGAMENTO > 0
-        o	Altrimenti valorizzare con ëNí
+      ¬ï	RICHIESTA_PAG_INFO_PAGAMENTO.FLG_RENDICONTABILE 
+        o	Valorizzare con ¬ëS¬í  se RICHIESTA_PAGAMENTO.IMP_PAGAMENTO > 0
+        o	Altrimenti valorizzare con ¬ëN¬í
 
       */           
       if  v_imp_pagato > 0 then
@@ -1768,7 +1768,7 @@ DECLARE
          fase:='SP_REGISTRA_INTERMEDIARI ritorno';
          msgErrore := 'Ritorno : ' || msgErrore;
 	  	 Raise notice 'Errore : %', msgErrore;
-		 Raise notice 'Il codice intermediario genrato per l''azienda % , C.F. - %,  Ë : %' ,inDesDenominazione,inCodFiscale,outCodIntermediario;
+		 Raise notice 'Il codice intermediario genrato per l''azienda % , C.F. - %,  √® : %' ,inDesDenominazione,inCodFiscale,outCodIntermediario;
 --		 Raise debug ''whatever you want % '', aVariable;
        ELSE
            fase:='numSeparatorsNOT8 ';
@@ -2048,7 +2048,7 @@ begin
   -- Verifico che il numero di campi passati in input corrisponda a quello atteso
   valoriInput = string_to_array(rigacsv, ';');    
   if(array_length(valoriInput, 1)!=NUM_CAMPI_INPUT)then
-     raise exception 'ERRORE! Il numero di campi passato nella riga CSV di input alla procedura non Ë quello atteso.';
+     raise exception 'ERRORE! Il numero di campi passato nella riga CSV di input alla procedura non √® quello atteso.';
   end if;
   
   -- Elimino le virgolette (carattere ") iniziali e finali dai valori di input letti dalla riga e 
@@ -2134,7 +2134,7 @@ begin
   
   
   --
-  -- Verifico se l'azienda esiste gi‡ censita in DATORE_LAVORE ricercando 
+  -- Verifico se l'azienda esiste gi√† censita in DATORE_LAVORE ricercando 
   -- il suo codice fiscale
   --
   begin
@@ -2156,7 +2156,7 @@ begin
   end;
    
   -- 
-  -- Se l'azienda ospitante Ë gi‡ censita in PLUS aggiungo solo la sede di lavoro (sede del tirocinio),
+  -- Se l'azienda ospitante √® gi√† censita in PLUS aggiungo solo la sede di lavoro (sede del tirocinio),
   -- altrimenti inserisco in datore lavoro, in sede legale e sede di lavoro.
   --
   if(idDatoreLavoroEsistente is null)then
@@ -2214,7 +2214,7 @@ begin
   
   --
   -- Leggo il progressivo da assegnare alla sede.
-  -- Se l'azienda non esisteva allora il progressivo Ë sicuramente 1,
+  -- Se l'azienda non esisteva allora il progressivo √® sicuramente 1,
   -- altrimento lo calcolo attraverso una select.
   --
   if(idDatoreLavoroEsistente is null)then
@@ -2354,7 +2354,7 @@ begin
       dat_scadenza_permesso, dat_ultima_iscrizione, cod_useragg, dtt_tmst )
     values 
     ( ideLavoratore, codStatusStraniero, codDocumentoStraniero, codMotivoPermStraniero, 
-      dataInizioPermesso, dataScadenzaPermesso, codUserInsAgg, now() );  
+      dataScadenzaPermesso, dataInizioPermesso, codUserInsAgg, now() );  
       
     exception
      when others then
